@@ -51,12 +51,12 @@ grad_objective = grad(objective)
 epochs = 10
 print ("RMSE before training:", sklearn.metrics.mean_squared_error(D[1],neural_network(D[0], theta)) )
 rmse = []
-for i in xrange(0, epochs): 
-	for j in xrange(0, examples): 
+for i in range(0, epochs): 
+	for j in range(0, examples): 
 		delta = grad_objective(theta, j) 
 		theta = update_theta(theta,delta, 0.01)
 
-rmse.append(sklearn.metrics.mean_squared_error(D[1],neural_network(D[0], theta))) 
+		rmse.append(sklearn.metrics.mean_squared_error(D[1],neural_network(D[0], theta))) 
 print ("RMSE after training:", sklearn.metrics.mean_squared_error(D[1],neural_network(D[0], theta)))
 pylab.plot(rmse) 
 pylab.show()
